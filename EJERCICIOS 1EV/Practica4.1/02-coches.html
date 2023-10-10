@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejericio coches</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        class coche {
+            constructor(marca, modelo, precio, annoMatriculacion, url) {
+                this._marca = marca;
+                this._modelo = modelo;
+                this._precio = precio;
+                this._annoMatriculacion = annoMatriculacion;
+                this._url = url;
+            }
+        }
+
+        function pintaCoches (coches) {
+            document.write(coches._marca + " ");
+            document.write(coches._modelo + " ");
+            document.write(coches._precio + " ");
+            document.write(coches._annoMatriculacion + " ");
+
+            document.write("<img src=" + coches._url + "> </img>");
+            document.write("<br>");
+
+        }
+        // Crear 5 instancias de objetos Coche
+        const coche1 = new coche("Fiat", "Panda", 14.500, 2020, "./img/coche1.jpg");
+        const coche2 = new coche("Honda", "Civic", 18000, 2021, "./img/coche2.jpg");
+        const coche3 = new coche("Ford", "Focus", 22000, 2019, "./img/coche3.jpg");
+        const coche4 = new coche("Chevrolet", "Cruze", 19000, 2022, "./img/coche4.jpg");
+        const coche5 = new coche("Volkswagen", "Golf", 21000, 2020, "./img/coche5.jpg");
+
+        // Crear un array y agregar las instancias de Coche
+        let listaCoches = new Array (coche1, coche2, coche3, coche4, coche5);
+
+       listaCoches.forEach(coche => {
+        console.log(coche);
+        pintaCoches(coche);
+       });
+
+    </script>
+</body>
+
+</html>

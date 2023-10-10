@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número Aleatorio</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Premio</th>
+            <th>Número</th>
+        </tr>
+
+        <script type="text/javascript">
+            // Ejercicio Uno
+            const numeroAleatorio = (max) => {
+                let resultado = Math.floor(Math.random() * (max + 1));
+                return resultado;
+            }
+
+            // Ejercicio Dos
+            let premios = new Array(10);
+
+            for (let i = 0; i < premios.length; i++) {
+                premios[i] = numeroAleatorio(99999);
+            }
+
+            for (let i = 0; i < premios.length; i++) {
+                document.write("<tr>");
+                document.write(`<td>PREMIO ${i + 1}</td>`);
+                document.write(`<td>${premios[i]}</td>`);
+                document.write("</tr>");
+            }
+        </script>
+    </table>
+</body>
+</html>

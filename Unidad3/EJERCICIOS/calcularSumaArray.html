@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script text="text/javascript">
+        /*Declara una función flecha a la que acepte como argumento un array de números y 
+        devuelva la suma de todos ellos.*/
+
+        const sumaE1 = (lista) => {
+            let contador = 0;
+            lista.forEach(elemento => {
+                contador += elemento; // Aquí debes sumar el elemento al contador
+            });
+            return contador;
+        }
+
+        const a1 = [23, 23, 25, 26, 32]; // Debes declarar el array antes de usarlo
+        console.log("La suma es: " + sumaE1(a1));
+    </script>
+
+</body>
+
+</html>

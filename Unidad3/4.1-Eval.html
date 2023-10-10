@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcion Eval</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //Facilmente hackeable
+        eval(new String("2+2")); // Devuelve "2+2"
+        eval("2+2"); // Devuelve 4
+        let input = prompt("Introduce una operación aritmética");
+        let resultado = eval(input);
+        alert("El resultado de la operación es: ") + resultado;
+    </script>
+</body>
+</html>
