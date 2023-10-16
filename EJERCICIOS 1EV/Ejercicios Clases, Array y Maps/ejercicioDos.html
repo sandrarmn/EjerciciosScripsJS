@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Dos</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Población</th>
+                <th>Edad</th>
+                <th>Estudios</th>
+                <th>Carnet de conducir</th>
+            </tr>
+        </thead>
+        <tbody class="tablaDatos"></tbody>
+    </table>
+
+    <script type="text/javascript">
+        // EJERCICIO UNO
+        // Creamos la clase persona
+        class persona {
+            constructor(nombre, apellidos, poblacion, edad, estudios, carnetConducir) {
+                this._nombre = nombre;
+                this._apellidos = apellidos;
+                this._poblacion = poblacion;
+                this._edad = edad;
+                this._estudios = estudios;
+                this._carnetConducir = carnetConducir;
+            }
+
+            // Getters & Setters
+            get edad() {
+                return this._edad;
+            }
+
+            set edad(edad) {
+                this._edad = edad;
+            }
+
+            get estudios() {
+                return this._estudios;
+            }
+
+            set estudios(estudios) {
+                this._estudios = estudios;
+            }
+        }
+
+        // Función alerta
+        function comprobarAtributo(persona) {
+            if (typeof persona._nombre !== 'string') {
+                alert("El atributo nombre debe ser una cadena de texto");
+            }
+
+            if (typeof persona._apellidos !== 'string') {
+                alert("El atributo apellidos debe ser una cadena de texto");
+            }
+
+            if (typeof persona._poblacion !== 'string') {
+                alert("El atributo población debe ser una cadena de texto");
+            }
+
+            if (typeof persona._edad !== 'number') {
+                alert("El atributo edad debe ser un valor numérico");
+            }
+
+            if (typeof persona._estudios !== 'string') {
+                alert("El atributo estudios debe ser una cadena de texto");
+            }
+
+            if (typeof persona._carnetConducir !== 'boolean') {
+                alert("El atributo carnet de conducir debe ser un valor booleano");
+            }
+        }
+
+        // EJERCICIO DOS
+        // Creación Array
+        const persona1 = new persona("Irene", "Verbo", "Consuegra", 22, "Enfermería", false);
+        const persona2 = new persona("Marta", "García", "Consuegra", 22, "Pedagogía", true);
+        const persona3 = new persona("Maria del Carmen", "Gallego", "Consuegra", 22, "Historia", false);
+        const persona4 = new persona("Irene", "García", "Consuegra", 22, "Magisterio", true);
+        const persona5 = new persona("Elena", "Gallego", "Consuegra", 22, "Traducción", true);
+        const persona6 = new persona("Ana", "Gallego", "Urda", 22, "Turismo", false);
+        const persona7 = new persona("Nerea", "Guijarro", "Consuegra", 22, "Magisterio", true);
+        const persona8 = new persona("Ángela", "Romero", "Consuegra", 23, "Diseño", false);
+        const persona9 = new persona("Sofía", "de la Peña", "Consuegra", 22, "Veterinaria", true);
+
+        // EJERCICIO TRES
+        //  Creamos el mapa
+        const mapaPersonas = new Map([
+            ["83942039L", persona1],
+            ["39283452W", persona2],
+            ["10283945S", persona3],
+            ["03928349L", persona4],
+            ["20384923T", persona5],
+            ["38293402J", persona6],
+            ["20392834N", persona7],
+            ["30985748I", persona8],
+            ["02938230W", persona9],
+        ]);
+
+        // Ordenar el mapa por DNI
+        const mapaPersonasOrdenado = new Map([...mapaPersonas].sort());
+
+        const tablaDatos = document.querySelector(".tablaDatos");
+
+        mapaPersonasOrdenado.forEach((persona, dni) => {
+            const fila = document.createElement("tr");
+            const datos = [
+                dni,
+                persona._nombre,
+                persona._apellidos,
+                persona._poblacion,
+                persona._edad,
+                persona._estudios,
+                persona._carnetConducir ? "Sí" : "No"
+            ];
+
+            datos.forEach((dato) => {
+                const celda = document.createElement("td");
+                celda.textContent = dato;
+                fila.appendChild(celda);
+            });
+
+            tablaDatos.appendChild(fila);
+        });
+    </script>
+</body>
+</html>
