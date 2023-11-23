@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Checkbox Eventos</title>
+</head>
+
+<body>
+
+    <!-- Creamos los checkbox -->
+    <input type="checkbox" id="checkbox1"> CheckBox 1 </br>
+    <input type="checkbox" id="checkbox2"> CheckBox 2 </br>
+    <input type="checkbox" id="checkbox3"> CheckBox 3
+
+    <script>
+        // Primero listo todos los checkbox anteriores
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+        // Hago que al inicio los tres checkbox estén marcados
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = true;
+        });
+
+        // Añado un evento a cada uno de los checkbox
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+
+                // Hago que se desmarquen
+                checkboxes.forEach(cb => {
+                    if (cb !== checkbox) {
+                        cb.checked = false;
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>

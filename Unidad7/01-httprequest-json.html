@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="01-estilos.css">
+</head>
+<body>
+    
+    <div class="contenedor">
+
+        <h1>Ajaz con XMLHttpRRequest</h1>
+        <div class="contenido">
+
+        </div>
+        <button class="btn">GET!</button>
+    </div>
+
+
+    <script>
+        
+        const contenido = document.querySelector(".contenido");
+        const btn = document.querySelector(".btn");
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.open("GET", "https://www.boredapi.com/api/activity");
+
+        xhr.addEventListener("load", function(){
+            console.log(this.responseText);
+            let respuesta = this.response;
+            insertOutputResponse(this.response);
+            xhr.open("GET", "https://www.boredapi.com/api/activity");
+
+        });
+        
+
+        btn.addEventListener("click", e => {
+            xhr.send();
+            
+        });
+
+        function insertOutputResponse(response) {
+            
+            let decodeResponse=JSON.parse(response);
+            
+            let activity = document.createElement("h4");
+            activity.append(decodeResponse.activity);
+            contenido.append(activity);
+
+            let enlace = document.createElement("h4");
+            enlace.append(decodeResponse.link);
+            contenido.append(enlace);
+        }
+
+
+    </script>
+</body>
+</html>
